@@ -1,10 +1,7 @@
-def call(projectKey, abortPipeline = false) {
+def call(projectKey, gitBranch, abortPipeline = false) {
     def scannerResult = 1
 
-    // Obtener la rama donde esta este codigo
-    def gitBranch = env.BRANCH_NAME
-
-    echo "Mi rama es ${gitBranch}"
+    echo "Mi rama en la libreria es ${gitBranch}"
 
     timeout(time: 5, unit: 'MINUTES') {
         withSonarQubeEnv(installationName: 'SonarLocal', credentialsId: 'SonarQube_Token')  {
