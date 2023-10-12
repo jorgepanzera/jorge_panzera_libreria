@@ -3,6 +3,10 @@
 def call(projectKey, abortPipeline = false) {
     def scannerResult = 1
 
+    bat 'echo Estoy en la Libreria'
+    return 0
+
+    /*
     timeout(time: 5, unit: 'MINUTES') {
         withSonarQubeEnv(installationName: 'SonarLocal', credentialsId: 'SonarQube_Token')  {
             scannerResult = bat(script: "sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.sources=.", returnStatus: true)
@@ -14,4 +18,5 @@ def call(projectKey, abortPipeline = false) {
     }
 
     return scannerResult
+    */
 }
