@@ -1,5 +1,3 @@
-// projectKey - nombre del proyecto a analizar
-// abortPipeline - Define si aborta o continua el pipeline si falla el scanner
 def call(projectKey, abortPipeline = false) {
     def scannerResult = 1
 
