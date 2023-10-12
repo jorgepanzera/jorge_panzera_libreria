@@ -2,7 +2,7 @@ def call(projectKey, abortPipeline = false) {
     def scannerResult = 1
 
     // Obtener la rama donde esta este codigo
-    def gitBranch = bat(script: 'git rev-parse --abbrev-ref HEAD', returnStatus: true).trim()
+    def gitBranch = env.BRANCH_NAME
 
     bat "Mi rama es ${gitBranch}"
 
