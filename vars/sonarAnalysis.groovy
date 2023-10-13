@@ -1,7 +1,7 @@
 def call(projectKey, gitBranch, abortPipeline = false) {
     def scannerResult = 1
 
-    echo "1 Mi rama en la libreria es ${gitBranch}"
+    bat "echo Mi rama en la libreria es ${gitBranch}"
 
     timeout(time: 5, unit: 'MINUTES') {
         withSonarQubeEnv(installationName: 'SonarLocal', credentialsId: 'SonarQube_Token')  {
