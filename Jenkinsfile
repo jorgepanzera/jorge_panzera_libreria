@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     environment {
-        CUSTOM_BRANCH = 'master'
+        CUSTOM_BRANCH = 'develop'
     }
 
     stages {
@@ -21,7 +21,6 @@ pipeline {
                 script { 
                     def gitBranch = CUSTOM_BRANCH
                     bat "echo La rama actual del Jenkinsfile es: ${gitBranch}"
-                    bat 'echo Jenkinsfile: %CUSTOM_BRANCH%'
                     def result = sonarAnalysis('threepoints_devops_webserver', gitBranch, true)
                 }
             }
@@ -31,7 +30,6 @@ pipeline {
             steps {
                 echo 'Construcción de la imagen Docker'
                 bat 'docker build --tag devops_ws .'
-                
             }
         }
 
