@@ -15,9 +15,9 @@ pipeline {
         stage('Pruebas de SAST') {
             steps {
                 script { 
-                    def gitBranch = env.BRANCH_NAME
+                    def gitBranch = env.env.GITHUB_BRANCH
                     bat "echo La rama actual del Jenkinsfile es: ${gitBranch}"
-                    bat 'echo Jenkinsfile: %BRANCH_NAME%'
+                    bat 'echo Jenkinsfile: %GITHUB_BRANCH%'
                     def result = sonarAnalysis('threepoints_devops_webserver', gitBranch, true)
                 }
             }
