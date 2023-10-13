@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     environment {
-        CUSTOM_BRANCH = 'master'
+        CUSTOM_BRANCH = 'hotfix_rapido'
     }
 
     stages {
