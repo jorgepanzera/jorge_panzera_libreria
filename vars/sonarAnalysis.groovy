@@ -1,5 +1,5 @@
 def call(projectKey, gitBranch, abortPipeline = false) {
-    def scannerResult = 1
+    def scannerResult = null
     def haveToExitPipeline = false
 
     timeout(time: 30, unit: 'SECONDS') {
