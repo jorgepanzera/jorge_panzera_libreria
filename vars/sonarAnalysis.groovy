@@ -8,8 +8,9 @@ def call(projectKey, gitBranch, abortPipeline = false) {
         }
     }
 
-    bat 'echo scannerResult ${scannerResult}'
-    bat 'echo abortPipeline ${abortPipeline}'
+    bat "echo scannerResult ${scannerResult}"
+    bat "echo abortPipeline ${abortPipeline}"
+    bat "echo gitBranch ${gitBranch}"
     if (abortPipeline && scannerResult != 0) {
         haveToExitPipeline = true
     } else if (!abortPipeline) {
@@ -19,7 +20,7 @@ def call(projectKey, gitBranch, abortPipeline = false) {
         }
     }
 
-    bat 'echo haveToExitPipeline ${haveToExitPipeline}'
+    bat "echo abortPipeline ${abortPipeline}"
 
     if (haveToExitPipeline) {
         error("SonarQube scan failed with result code: ${scannerResult}")
