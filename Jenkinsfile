@@ -21,7 +21,7 @@ pipeline {
                 script { 
                     def gitBranch = CUSTOM_BRANCH
                     bat "echo La rama actual del Jenkinsfile es: ${gitBranch}"
-                    def result = sonarAnalysis('threepoints_devops_webserver', gitBranch, true)
+                    def result = sonarAnalysis('threepoints_devops_webserver', gitBranch, false)
                 }
             }
         }
