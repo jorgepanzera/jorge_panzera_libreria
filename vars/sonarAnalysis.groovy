@@ -2,7 +2,7 @@ def call(projectKey, gitBranch, abortPipeline = false) {
     def scannerResult = null
     def haveToExitPipeline = false
 
-    timeout(time: 30, unit: 'SECONDS') {
+    timeout(time: 150, unit: 'SECONDS') {
         withSonarQubeEnv(installationName: 'SonarLocal', credentialsId: 'SonarQube_Token')  {
             scannerResult = bat(script: "sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.sources=.", returnStatus: true)
         }
